@@ -1,3 +1,5 @@
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
+
 # SLM Thesis: Ensemble Learning with Fine-Tuned vs Base Small Language Models
 
 ## Overview
@@ -177,4 +179,4 @@ Stevens Institute of Technology
 
 ## License
 
-To be added
+This project is licensed under the MIT License. See the LICENSE file for details.
