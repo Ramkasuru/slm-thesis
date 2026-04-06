@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Virtual environment
+venv/
+.env/
+
+# Logs
+logs/
+*.log
+
+# Outputs / checkpoints
+outputs/
+checkpoints/
+*.pt
+*.bin
+*.safetensors
+
+# Data (IMPORTANT)
+data/*.jsonl
+data/*.csv
+
+# System
+.DS_Store
+
