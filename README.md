@@ -1,88 +1,96 @@
 # SLM Thesis: Ensemble Learning with Fine-Tuned vs Base Small Language Models
 
 ## Overview
+
 This repository contains a reproducible research pipeline for training and evaluating Small Language Models (SLMs) using synthetic datasets, LoRA-based fine-tuning, and ensemble decision strategies.
 
-The central research question explored in this work is:
+### Central Research Question
 
-Do ensembles of fine-tuned SLMs outperform:
-1) ensembles of non-fine-tuned SLMs, and  
-2) individual SLMs  
-in structured explanatory tasks?
+**Do ensembles of fine-tuned SLMs outperform:**
+1. **Ensembles of non-fine-tuned SLMs**
+2. **Individual SLMs**
+
+In structured explanatory tasks?
 
 ---
 
 ## Research Motivation
-Large Language Models (LLMs) achieve strong performance but are computationally expensive and difficult to deploy at scale. Small Language Models (SLMs) are efficient but often weaker individually.
+
+Large Language Models (LLMs) achieve strong performance, but they are computationally expensive and harder to deploy at scale. Small Language Models (SLMs) are more efficient, but they often underperform when used individually.
 
 This project investigates whether combining:
-- fine-tuning (LoRA)
-- multiple SLMs (ensembles)
 
-can bridge this performance gap while maintaining efficiency.
+- **parameter-efficient fine-tuning (LoRA)**
+- **multiple SLMs through ensemble voting**
+
+can improve answer quality while preserving efficiency.
 
 ---
 
-## Experimental Setup
+## Comparison Groups
 
-### Models
-- Phi
-- Qwen
-- Granite
+This work compares three experimental settings:
 
-### Training Strategy
-- Parameter-efficient fine-tuning using LoRA
-- Synthetic dataset of structured tutor-style explanations
+1. **Single SLM baseline**
+2. **Ensemble of base (non-fine-tuned) SLMs**
+3. **Ensemble of fine-tuned SLMs**
 
-### Comparison Groups
-1. Single SLM (baseline)
-2. Ensemble of base (non-fine-tuned) SLMs
-3. Ensemble of fine-tuned SLMs (proposed approach)
+---
+
+## Models
+
+The current pipeline is designed around the following SLMs:
+
+- **Phi**
+- **Qwen**
+- **Granite**
 
 ---
 
 ## Key Contributions
 
-- End-to-End Research Pipeline  
-  Data generation → training → evaluation → comparison  
+### End-to-End Research Pipeline
+A full workflow from synthetic data generation to training, evaluation, and final comparison.
 
-- Synthetic Data Generation Framework  
-  Structured tutor-style outputs with filtering and deduplication  
+### Synthetic Data Generation Framework
+Structured tutor-style outputs with filtering and deduplication.
 
-- Efficient Fine-Tuning  
-  LoRA-based training for scalable adaptation  
+### Efficient Fine-Tuning
+LoRA-based training for scalable adaptation of SLMs.
 
-- Evaluation Framework  
-  Token F1  
-  ROUGE-L  
-  Schema validation  
-  Latency and output length  
+### Evaluation Framework
+Includes both quality and efficiency metrics:
+- Token F1
+- ROUGE-L
+- Schema validation
+- Latency
+- Output length
 
-- Comparative Analysis  
-  Single vs ensemble models  
-  Fine-tuned vs non-fine-tuned systems  
+### Comparative Analysis
+Direct comparison across:
+- single vs ensemble systems
+- base vs fine-tuned systems
 
-- HPC-Ready Implementation  
-  SLURM-based execution  
-  Dependency chaining  
-  Checkpointing for long-running jobs  
+### HPC-Ready Implementation
+Built for reproducible execution with:
+- SLURM job scripts
+- dependency chaining
+- checkpointing for long-running jobs
 
 ---
 
 ## Project Structure
 
+```text
 slm-thesis/
-│
-├── scripts/        # Training, evaluation, data processing
-├── sbatch/         # SLURM job scripts (train + eval)
+├── scripts/        # Training, evaluation, and data processing
+├── sbatch/         # SLURM job scripts
 ├── logs/           # Job outputs (ignored in git)
 ├── outputs/        # Model checkpoints (ignored in git)
 ├── data/           # Datasets (ignored in git)
 └── README.md
-
----
-
-## Methodology
+```
+# Methodology
 
 ### 1. Dataset Generation
 - Synthetic tutor-style question-answer pairs
@@ -110,7 +118,7 @@ Note: Exact Match (EM) is not used due to the open-ended nature of explanatory t
 ---
 
 ## Pipeline
-
+```text 
 Synthetic Data Generation
         ↓
 Dataset Cleaning & Deduplication
@@ -124,7 +132,7 @@ Evaluation (Single Models)
 Ensemble Evaluation
         ↓
 Comparative Analysis
-
+```
 ---
 
 ## Current Status
