@@ -1,27 +1,32 @@
-# Python
+venv/
 __pycache__/
 *.pyc
-*.pyo
-
-# Virtual environment
-venv/
-.env/
-
-# Logs
 logs/
-*.log
+*.out
+*.err
 
-# Outputs / checkpoints
-outputs/
-checkpoints/
-*.pt
-*.bin
-*.safetensors
+# Large model/checkpoint files
+outputs/*/checkpoint*/
+outputs/*/*.safetensors
+outputs/*/*.bin
+outputs/*/*.pt
+outputs/*/*.pth
 
-# Data (IMPORTANT)
-data/*.jsonl
-data/*.csv
+# Cache files
+outputs/eval_cache*/
+.cache/
+huggingface_cache/
 
-# System
+# Keep final reports/tables
+!outputs/**/*report*.json
+!outputs/**/*summary*.txt
+!outputs/**/*table*.md
+!outputs/**/*failures*.jsonl
+
+# Archives
+*.tar.gz
+*.zip
+
+# OS/editor
 .DS_Store
-
+.vscode/

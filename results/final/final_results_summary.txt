@@ -1,0 +1,6 @@
+Final reported evaluation used data/eval_750.jsonl with 750 held-out examples.
+Phi-3.5 FT achieved Token F1=0.0446, ROUGE-L=0.0304, schema compliance=0.1387.
+Granite-3.3 2B FT achieved Token F1=0.0313, ROUGE-L=0.0198, schema compliance=0.0947.
+The Phi-Granite fact-agreement ensemble achieved Token F1=0.0711, ROUGE-L=0.0471, schema compliance=0.2187.
+The ensemble required 2.6671 GPU-hours and estimated cost $4.80.
+Key-Fact F1 remained near zero, indicating that structured key-fact extraction and output schema compliance limited the effectiveness of the current ensemble pipeline.

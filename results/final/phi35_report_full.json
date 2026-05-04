@@ -1,0 +1,13 @@
+{
+  "model_key": "phi35",
+  "hf_id": "microsoft/Phi-3.5-mini-instruct",
+  "adapter_dir": "outputs/phi35_final/phi35_epi_lora",
+  "eval_path": "data/eval_750.jsonl",
+  "num_examples": 750,
+  "avg_valid_schema": 0.072,
+  "avg_key_fact_f1": 0.6032358646711293,
+  "avg_rouge_l_f1": 0.23880483753578577,
+  "avg_token_f1": 0.33685258534660706,
+  "avg_latency_s": 23.09139690176646,
+  "avg_new_tokens": 718.1813333333333
+}

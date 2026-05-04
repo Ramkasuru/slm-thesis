@@ -1,0 +1,13 @@
+{
+  "model_key": "qwen3b",
+  "hf_id": "Qwen/Qwen2.5-3B-Instruct",
+  "adapter_dir": "outputs/qwen3b_final/qwen3b_epi_lora",
+  "eval_path": "data/eval_750.jsonl",
+  "num_examples": 750,
+  "avg_valid_schema": 0.6506666666666666,
+  "avg_key_fact_f1": 0.9281454545454529,
+  "avg_rouge_l_f1": 0.3967577770639659,
+  "avg_token_f1": 0.5790598821821896,
+  "avg_latency_s": 8.244446398735047,
+  "avg_new_tokens": 160.32133333333334
+}

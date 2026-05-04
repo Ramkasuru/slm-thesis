@@ -3,22 +3,21 @@
 #SBATCH --partition=gpu-l40s
 #SBATCH --gres=gpu:1
 #SBATCH --cpus-per-task=4
-#SBATCH --mem=48G
-#SBATCH --time=16:00:00
-#SBATCH --output=logs/qwen_final_%j.out
-#SBATCH --error=logs/qwen_final_%j.err
+#SBATCH --mem=32G
+#SBATCH --time=08:00:00
+#SBATCH --output=/mmfs1/home/kkasuru/slm_thesis_v1_final/logs/qwen_final_%j.out
+#SBATCH --error=/mmfs1/home/kkasuru/slm_thesis_v1_final/logs/qwen_final_%j.err
 
 set -euo pipefail
 
 module purge
 module load python39
-module load cuda
 source ~/slm_thesis_v1_final/venv/bin/activate
 
 cd ~/slm_thesis_v1_final
 mkdir -p logs outputs
 
-python -c "import torch; print(torch.__version__); print(torch.version.cuda); print(torch.cuda.is_available()); print(torch.cuda.device_count()); print(torch.cuda.get_device_name(0) if torch.cuda.is_available() else 'no gpu')"
+python -c "import torch; print(torch.__version__); print(torch.version.cuda); print(torch.cuda.is_available())"
 
 python scripts/train.py \
   --model-key qwen3b \
@@ -32,3 +31,5 @@ python scripts/train.py \
   --save-steps 500 \
   --save-total-limit 2 \
   --gradient-checkpointing
+
+echo "Qwen training completed at $(date)"

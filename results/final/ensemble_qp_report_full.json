@@ -1,0 +1,19 @@
+{
+  "model_keys": [
+    "qwen3b",
+    "phi35"
+  ],
+  "adapter_dirs": [
+    "outputs/qwen3b_final/qwen3b_epi_lora",
+    "outputs/phi35_final/phi35_epi_lora"
+  ],
+  "voting_mode": "consensus",
+  "eval_path": "data/eval_final.jsonl",
+  "num_examples": 750,
+  "avg_valid_schema": 0.6506666666666666,
+  "avg_key_fact_f1": 0.9278491582491567,
+  "avg_rouge_l_f1": 0.39655870071656923,
+  "avg_token_f1": 0.5789680761065931,
+  "avg_latency_s": 16.015595158259075,
+  "avg_new_tokens": 414.228
+}

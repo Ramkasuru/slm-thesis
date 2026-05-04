@@ -3,7 +3,7 @@
 #SBATCH --partition=gpu-l40s
 #SBATCH --gres=gpu:1
 #SBATCH --cpus-per-task=4
-#SBATCH --mem=48G
+#SBATCH --mem=32G
 #SBATCH --time=16:00:00
 #SBATCH --output=logs/phi35_final_%j.out
 #SBATCH --error=logs/phi35_final_%j.err
@@ -32,6 +32,4 @@ python scripts/train.py \
   --max-seq-len 1024 \
   --save-steps 500 \
   --save-total-limit 2 \
-  --gradient-checkpointing
-EOF
-
+  --gradient-checkpointing\

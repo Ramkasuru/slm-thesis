@@ -1,0 +1,21 @@
+{
+  "model_keys": [
+    "qwen3b",
+    "phi35",
+    "granite33_2b"
+  ],
+  "adapter_dirs": [
+    "outputs/qwen3b_final/qwen3b_epi_lora",
+    "outputs/phi35_final/phi35_epi_lora",
+    "outputs/granite33_2b_final/granite33_2b_epi_lora"
+  ],
+  "voting_mode": "consensus",
+  "eval_path": "data/eval_final.jsonl",
+  "num_examples": 750,
+  "avg_valid_schema": 0.404,
+  "avg_key_fact_f1": 0.9153055685055679,
+  "avg_rouge_l_f1": 0.3789557897318376,
+  "avg_token_f1": 0.5692396224182248,
+  "avg_latency_s": 28.595522049585977,
+  "avg_new_tokens": 665.164
+}

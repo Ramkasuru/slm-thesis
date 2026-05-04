@@ -1,98 +1,88 @@
-![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
-
 # SLM Thesis: Ensemble Learning with Fine-Tuned vs Base Small Language Models
 
 ## Overview
-
 This repository contains a reproducible research pipeline for training and evaluating Small Language Models (SLMs) using synthetic datasets, LoRA-based fine-tuning, and ensemble decision strategies.
 
-### Central Research Question
+The central research question explored in this work is:
 
-**Do ensembles of fine-tuned SLMs outperform:**
-1. **Ensembles of non-fine-tuned SLMs**
-2. **Individual SLMs**
-
-In structured explanatory tasks?
+Do ensembles of fine-tuned SLMs outperform:
+1) ensembles of non-fine-tuned SLMs, and  
+2) individual SLMs  
+in structured explanatory tasks?
 
 ---
 
 ## Research Motivation
-
-Large Language Models (LLMs) achieve strong performance, but they are computationally expensive and harder to deploy at scale. Small Language Models (SLMs) are more efficient, but they often underperform when used individually.
+Large Language Models (LLMs) achieve strong performance but are computationally expensive and difficult to deploy at scale. Small Language Models (SLMs) are efficient but often weaker individually.
 
 This project investigates whether combining:
+- fine-tuning (LoRA)
+- multiple SLMs (ensembles)
 
-- **parameter-efficient fine-tuning (LoRA)**
-- **multiple SLMs through ensemble voting**
-
-can improve answer quality while preserving efficiency.
-
----
-
-## Comparison Groups
-
-This work compares three experimental settings:
-
-1. **Single SLM baseline**
-2. **Ensemble of base (non-fine-tuned) SLMs**
-3. **Ensemble of fine-tuned SLMs**
+can bridge this performance gap while maintaining efficiency.
 
 ---
 
-## Models
+## Experimental Setup
 
-The current pipeline is designed around the following SLMs:
+### Models
+- Phi
+- Qwen
+- Granite
 
-- **Phi**
-- **Qwen**
-- **Granite**
+### Training Strategy
+- Parameter-efficient fine-tuning using LoRA
+- Synthetic dataset of structured tutor-style explanations
+
+### Comparison Groups
+1. Single SLM (baseline)
+2. Ensemble of base (non-fine-tuned) SLMs
+3. Ensemble of fine-tuned SLMs (proposed approach)
 
 ---
 
 ## Key Contributions
 
-### End-to-End Research Pipeline
-A full workflow from synthetic data generation to training, evaluation, and final comparison.
+- End-to-End Research Pipeline  
+  Data generation → training → evaluation → comparison  
 
-### Synthetic Data Generation Framework
-Structured tutor-style outputs with filtering and deduplication.
+- Synthetic Data Generation Framework  
+  Structured tutor-style outputs with filtering and deduplication  
 
-### Efficient Fine-Tuning
-LoRA-based training for scalable adaptation of SLMs.
+- Efficient Fine-Tuning  
+  LoRA-based training for scalable adaptation  
 
-### Evaluation Framework
-Includes both quality and efficiency metrics:
-- Token F1
-- ROUGE-L
-- Schema validation
-- Latency
-- Output length
+- Evaluation Framework  
+  Token F1  
+  ROUGE-L  
+  Schema validation  
+  Latency and output length  
 
-### Comparative Analysis
-Direct comparison across:
-- single vs ensemble systems
-- base vs fine-tuned systems
+- Comparative Analysis  
+  Single vs ensemble models  
+  Fine-tuned vs non-fine-tuned systems  
 
-### HPC-Ready Implementation
-Built for reproducible execution with:
-- SLURM job scripts
-- dependency chaining
-- checkpointing for long-running jobs
+- HPC-Ready Implementation  
+  SLURM-based execution  
+  Dependency chaining  
+  Checkpointing for long-running jobs  
 
 ---
 
 ## Project Structure
 
-```text
 slm-thesis/
-├── scripts/        # Training, evaluation, and data processing
-├── sbatch/         # SLURM job scripts
+│
+├── scripts/        # Training, evaluation, data processing
+├── sbatch/         # SLURM job scripts (train + eval)
 ├── logs/           # Job outputs (ignored in git)
 ├── outputs/        # Model checkpoints (ignored in git)
 ├── data/           # Datasets (ignored in git)
 └── README.md
-```
-# Methodology
+
+---
+
+## Methodology
 
 ### 1. Dataset Generation
 - Synthetic tutor-style question-answer pairs
@@ -120,7 +110,7 @@ Note: Exact Match (EM) is not used due to the open-ended nature of explanatory t
 ---
 
 ## Pipeline
-```text 
+
 Synthetic Data Generation
         ↓
 Dataset Cleaning & Deduplication
@@ -134,7 +124,7 @@ Evaluation (Single Models)
 Ensemble Evaluation
         ↓
 Comparative Analysis
-```
+
 ---
 
 ## Current Status
@@ -179,4 +169,47 @@ Stevens Institute of Technology
 
 ## License
 
-This project is licensed under the MIT License. See the LICENSE file for details.
+To be added
+
+## Thesis Pipeline Overview
+
+This repository contains the experimental pipeline for evaluating fine-tuned small language models and ensemble voting strategies for structured explanation generation in population dynamics and computational epidemiology.
+
+### Main Components
+
+- `scripts/`: training and evaluation scripts
+- `sbatch/`: SLURM job scripts for Jarvis L40S runs
+- `data/`: train/evaluation JSONL files when available
+- `results/final/`: final metric reports used in the thesis
+- `outputs/`: generated experiment artifacts; large checkpoints are excluded from Git
+
+### Final Reported Ensemble Results
+
+The final results include:
+- Phi + Qwen consensus ensemble
+- Granite + Qwen consensus ensemble
+- Qwen + Phi + Granite consensus ensemble
+- Phi + Granite fact-agreement ensemble
+
+Large model checkpoints and cache files are intentionally excluded from version control.
+
+## Thesis Pipeline Overview
+
+This repository contains the experimental pipeline for evaluating fine-tuned small language models and ensemble voting strategies for structured explanation generation in population dynamics and computational epidemiology.
+
+### Main Components
+
+- `scripts/`: training and evaluation scripts
+- `sbatch/`: SLURM job scripts for Jarvis L40S runs
+- `results/final/`: final metric reports used in the thesis
+- `outputs/`: generated experiment artifacts; large checkpoints are excluded from Git
+
+### Final Reported Ensemble Results
+
+The final results include:
+- Phi + Qwen consensus ensemble
+- Granite + Qwen consensus ensemble
+- Qwen + Phi + Granite consensus ensemble
+- Phi + Granite fact-agreement ensemble
+
+Large model checkpoints, virtual environments, caches, and logs are intentionally excluded from version control.

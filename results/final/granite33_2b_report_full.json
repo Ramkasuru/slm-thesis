@@ -1,0 +1,13 @@
+{
+  "model_key": "granite33_2b",
+  "hf_id": "ibm-granite/granite-3.3-2b-instruct",
+  "adapter_dir": "outputs/granite33_2b_final/granite33_2b_epi_lora",
+  "eval_path": "data/eval_750.jsonl",
+  "num_examples": 750,
+  "avg_valid_schema": 0.008,
+  "avg_key_fact_f1": 0.1262814814814814,
+  "avg_rouge_l_f1": 0.32223069666124493,
+  "avg_token_f1": 0.4984595165630597,
+  "avg_latency_s": 18.720778957684836,
+  "avg_new_tokens": 338.40133333333335
+}
