@@ -159,17 +159,8 @@ This repository is designed to be reproducible:
 
 ---
 
-## Author
 
-Ram Kasuru  
-Master’s Student, Applied AI  
-Stevens Institute of Technology
 
----
-
-## License
-
-To be added
 
 ## Thesis Pipeline Overview
 
@@ -213,3 +204,11 @@ The final results include:
 - Phi + Granite fact-agreement ensemble
 
 Large model checkpoints, virtual environments, caches, and logs are intentionally excluded from version control.
+
+## Author
+
+Ram Kasuru  
+Master’s Student, Applied AI  
+Stevens Institute of Technology
+
+---
